@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgroTech Insights - Tecnologia no Campo</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #0d140e;
+      color: #e2ebe3;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #1b4332, #2d6a4f);
+      color: #ffffff;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto 24px auto;
+      padding: 32px 24px;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+      border: 1px solid #40916c;
+    }
+
+    header img {
+      width: 110px;
+      height: 110px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #52b788;
+      margin-bottom: 12px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      margin-bottom: 6px;
+      color: #f4f9f4;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+      color: #d8f3dc;
+    }
+
+    .container-principal {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 280px;
+      gap: 24px;
+    }
+
+    @media (max-width: 768px) {
+      .container-principal {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    aside {
+      background-color: #162419;
+      border: 1px solid #2d4a33;
+      padding: 20px;
+      border-radius: 16px;
+      height: fit-content;
+    }
+
+    aside h3 {
+      color: #52b788;
+      margin-bottom: 12px;
+      font-size: 1.1rem;
+      border-bottom: 1px solid #2d4a33;
+      padding-bottom: 8px;
+    }
+
+    aside ul {
+      list-style: none;
+      font-size: 0.9rem;
+    }
+
+    aside ul li {
+      margin-bottom: 10px;
+      color: #b7e4c7;
+    }
+
+    article {
+      background-color: #162419;
+      border: 1px solid #2d4a33;
+      padding: 28px;
+      border-radius: 16px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
+    article h2 {
+      color: #52b788;
+      margin-bottom: 6px;
+    }
+
+    .artigo-autor {
+      font-size: 0.9rem;
+      color: #95d5b2;
+      margin-bottom: 16px;
+      font-style: italic;
+    }
+
+    .artigo-conteudo {
+      margin-bottom: 16px;
+      color: #d8f3dc;
+    }
+
+    .tags-tecnologias {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .tag {
+      background-color: #223827;
+      color: #74c69d;
+      font-size: 0.8rem;
+      padding: 4px 10px;
+      border-radius: 12px;
+      border: 1px solid #2d6a4f;
+    }
+
+    .acoes-post {
+      display: flex;
+      gap: 12px;
+      border-top: 1px solid #2d4a33;
+      padding-top: 16px;
+    }
+
+    button {
+      background-color: #223827;
+      color: #e2ebe3;
+      border: 1px solid #2d6a4f;
+      padding: 8px 16px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    button:hover {
+      background-color: #40916c;
+      color: #ffffff;
+      border-color: #52b788;
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    .secao-comentarios {
+      margin-top: 24px;
+      border-top: 1px dashed #2d4a33;
+      padding-top: 20px;
+    }
+
+    .secao-comentarios h3 {
+      font-size: 1.1rem;
+      margin-bottom: 12px;
+      color: #74c69d;
+    }
+
+    .form-comentario {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+
+    .form-comentario input {
+      flex: 1;
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 1px solid #2d4a33;
+      background-color: #0d140e;
+      color: #e2ebe3;
+      outline: none;
+    }
+
+    .form-comentario input:focus {
+      border-color: #52b788;
+    }
+
+    .lista-comentarios {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .comentario-item {
+      background-color: #101c13;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      border-left: 3px solid #52b788;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img 
+      src="https://images.unsplash.com/photo-1586771107445-d3ca888129ff?q=80&w=300&auto=format&fit=crop" 
+      alt="Sensor e tecnologia no campo"
+    >
+    <div>
+      <h1>AgroTech Insights</h1>
+      <p>Inovação, agricultura de precisão e sustentabilidade no campo</p>
+    </div>
+  </header>
+
+  <div class="container-principal">
+    <main>
+      <article>
+        <h2>Drones na Lavoura: Mapeamento de Precisão e Economia</h2>
+        <p class="artigo-autor">Por: Eduarda Menegol • 18 de Agosto</p>
+        <p class="artigo-conteudo">
+          O uso de Veículos Aéreos Não Tripulados (VANTs) equipados com câmeras multiespectrais revolucionou o monitoramento agrícola. Através do índice NDVI (Índice de Vegetação por Diferença Normalizada), é possível identificar estresse hídrico, deficiência nutricional e pragas em estágios iniciais. Essa detecção precoce permite a aplicação localizada de insumos, gerando uma redução de até 40% no uso de defensivos agrícolas.
+        </p>
+        <div class="tags-tecnologias">
+          <span class="tag">#Drones</span>
+          <span class="tag">#NDVI</span>
+          <span class="tag">#MapeamentoAéreo</span>
+          <span class="tag">#EconomiaDeInsumos</span>
+        </div>
+        
+        <div class="acoes-post">
+          <button class="btn-like">
+            🌱 <span class="qtd-like">0</span>
+          </button>
+          <button class="btn-dislike">
+            👎 <span class="qtd-dislike">0</span>
+          </button>
+        </div>
+
+        <div class="secao-comentarios">
+          <h3>Comentários</h3>
+          <div class="form-comentario">
+            <input type="text" class="input-comentario" placeholder="Escreva um comentário...">
+            <button class="btn-enviar-comentario">Enviar</button>
+          </div>
+          <div class="lista-comentarios">
+            <div class="comentario-item">Exemplo: Implementamos os mapeamentos semanais aqui na fazenda e a economia na pulverização foi excelente!</div>
+          </div>
+        </div>
+      </article>
+
+      <article>
+        <h2>Sensores IoT no Solo: Controle de Irrigação em Tempo Real</h2>
+        <p class="artigo-autor">Por:Eduarda Menegol • 15 de Agosto</p>
+        <p class="artigo-conteudo">
+          A integração de redes de sensores de umidade, temperatura e condutividade elétrica conectados via redes LoRaWAN ou 5G permite um manejo hídrico milimétrico. Ao conectar esses dados a sistemas automatizados de pivô central, o produtor aplica água apenas onde e quando a cultura necessita, evitando o desperdício energético e otimizando o uso dos recursos hídricos da propriedade.
+        </p>
+        <div class="tags-tecnologias">
+          <span class="tag">#IoT</span>
+          <span class="tag">#SensoresDeSolo</span>
+          <span class="tag">#IrrigaçãoInteligente</span>
+          <span class="tag">#RedeLoRaWAN</span>
+        </div>
+        
+        <div class="acoes-post">
+          <button class="btn-like">
+            🌱 <span class="qtd-like">0</span>
+          </button>
+          <button class="btn-dislike">
+            👎 <span class="qtd-dislike">0</span>
+          </button>
+        </div>
+
+        <div class="secao-comentarios">
+          <h3>Comentários</h3>
+          <div class="form-comentario">
+            <input type="text" class="input-comentario" placeholder="Escreva um comentário...">
+            <button class="btn-enviar-comentario">Enviar</button>
+          </div>
+          <div class="lista-comentarios"></div>
+        </div>
+      </article>
+    </main>
+
+    <aside>
+      <h3>Indicadores Agrotech</h3>
+      <ul>
+        <li>📍 <strong>Redução de Insumos:</strong> Até 35% com VANTs</li>
+        <li>📍 <strong>Economia de Água:</strong> 25% via IoT</li>
+        <li>📍 <strong>Conectividade 5G:</strong> Expansão rural em alta</li>
+      </ul>
+      <h3 style="margin-top: 20px;">Tópicos Populares</h3>
+      <ul>
+        <li>• Telemetria em Tratores</li>
+        <li>• Machine Learning na Colheita</li>
+        <li>• Rastreabilidade de Cadeia</li>
+      </ul>
+    </aside>
+  </div>
+
+  <script>
+    document.querySelectorAll("article").forEach((artigo) => {
+      const btnLike = artigo.querySelector(".btn-like");
+      const qtdLike = artigo.querySelector(".qtd-like");
+      const btnDislike = artigo.querySelector(".btn-dislike");
+      const qtdDislike = artigo.querySelector(".qtd-dislike");
+
+      btnLike.addEventListener("click", () => {
+        qtdLike.textContent = Number(qtdLike.textContent) + 1;
+      });
+
+      btnDislike.addEventListener("click", () => {
+        qtdDislike.textContent = Number(qtdDislike.textContent) + 1;
+      });
+
+      const btnEnviar = artigo.querySelector(".btn-enviar-comentario");
+      const inputComentario = artigo.querySelector(".input-comentario");
+      const listaComentarios = artigo.querySelector(".lista-comentarios");
+
+      btnEnviar.addEventListener("click", () => {
+        const texto = inputComentario.value.trim();
+        if (texto !== "") {
+          const novoComentario = document.createElement("div");
+          novoComentario.classList.add("comentario-item");
+          novoComentario.textContent = texto;
+          
+          listaComentarios.appendChild(novoComentario);
+          inputComentario.value = "";
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>
